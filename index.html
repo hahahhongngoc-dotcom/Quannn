@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== FIX BẢNG CÓ DÒNG KẺ ===== */
+
+table{
+border-collapse:collapse !important;
+}
+
+table, th, td{
+border:2px solid cyan !important;
+}
+
+th, td{
+padding:12px;
+text-align:center;
+}
+.club{
+padding:35px;
+border-radius:25px;
+margin-bottom:70px;
+color:white;
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
+transition:0.4s;
+}
+
+.club:hover{
+transform:translateY(-10px) scale(1.02);
+}
+
+/* Mỗi CLB một nền */
+
+#stem .club{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+}
+
+#vanhoa .club{
+background:linear-gradient(135deg,#ff9966,#ff5e62);
+}
+
+#songxanh .club{
+background:linear-gradient(135deg,#56ab2f,#a8e063);
+}
+
+#tienganh .club{
+background:linear-gradient(135deg,#8e2de2,#4a00e0);
+}
+
+#thethao .club{
+background:linear-gradient(135deg,#f7971e,#ffd200);
+color:black;
+}
+
+#phapluat .club{
+background:linear-gradient(135deg,#434343,#000000);
+}
+
+#vannhe .club{
+background:linear-gradient(135deg,#ff00cc,#333399);
+}
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+padding:12px 30px;
+border-radius:50px;
+display:flex;
+gap:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:600;
+padding:8px 15px;
+border-radius:20px;
+transition:0.3s;
+}
+
+nav a:hover{
+background:white;
+color:black;
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Orbitron',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+/* ===== NỀN CẦU VỒNG 3D ===== */
+
+body{
+background: linear-gradient(-45deg,
+#ff0000,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8);
+background-size:400% 400%;
+animation: gradientMove 15s ease infinite;
+color:white;
+overflow-x:hidden;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* ===== NAV ===== */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:center;
+gap:20px;
+padding:15px;
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav a:hover{
+color:yellow;
+}
+
+/* ===== HEADER ===== */
+
+header{
+height:80vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+header h1{
+font-size:40px;
+text-shadow:0 0 20px white;
+}
+
+header p{
+margin-top:15px;
+font-size:18px;
+}
+
+/* ===== SECTION ===== */
+
+.section{
+padding:120px 10%;
+scroll-margin-top:100px;
+}
+
+.club{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:20px;
+margin-bottom:60px;
+box-shadow:0 15px 35px rgba(0,0,0,0.6);
+transition:0.4s;
+}
+
+.club:hover{
+transform:translateY(-10px) rotateX(5deg);
+box-shadow:0 25px 50px rgba(0,0,0,0.8);
+}
+
+.club h2{
+margin-bottom:20px;
+color:yellow;
+}
+
+.info{
+line-height:1.7;
+}
+
+.club img{
+width:100%;
+margin-top:20px;
+border-radius:15px;
+}
+
+/* ===== FORM ===== */
+
+form{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+input{
+padding:10px;
+border:none;
+border-radius:10px;
+}
+
+button{
+padding:12px;
+border:none;
+border-radius:20px;
+background:yellow;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:white;
+}
+
+/* ===== BẢNG LỊCH ===== */
+
+.schedule{
+width:100%;
+border-collapse:collapse;
+margin:60px auto;
+background:rgba(0,0,0,0.6);
+}
+
+.schedule th,
+.schedule td{
+border:2px solid white;
+padding:12px;
+text-align:center;
+}
+
+.schedule th{
+background:rgba(255,255,255,0.2);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,0.7);
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#stem">STEM</a>
+<a href="#vanhoa">Văn hóa đọc</a>
+<a href="#songxanh">Sống xanh</a>
+<a href="#tienganh">Tiếng Anh</a>
+<a href="#thethao">Thể thao</a>
+<a href="#phapluat">Pháp luật</a>
+<a href="#vannhe">Văn nghệ</a>
+</nav>
+
+<header>
+<h1>CÂU LẠC BỘ TRƯỜNG THPT VÕ NGUYÊN GIÁP</h1>
+
+</header>
+<p>Lịch sinh hoạt chung: Chiều thứ 4 hằng tuần — 14h00</p>
+<table>
+<tr>
+<th>STT</th>
+<th>Tuần</th>
+<th>Câu lạc bộ</th>
+<th>Người phụ trách</th>
+</tr>
+<tr><td>1</td><td>1</td><td>CLB STEM</td><td>Phan Thị Điệp</td></tr>
+<tr><td>2</td><td>1</td><td>CLB Văn hóa đọc</td><td>Vũ Thị Lan Hương</td></tr>
+<tr><td>3</td><td>2</td><td>CLB Sống xanh</td><td>Nguyễn Thị Thúy Hằng</td></tr>
+<tr><td>4</td><td>2</td><td>CLB Pháp luật</td><td>Phạm Thị Tám</td></tr>
+<tr><td>5</td><td>3</td><td>CLB Văn nghệ</td><td>Nguyễn Thị Ly</td></tr>
+<tr><td>6</td><td>4</td><td>CLB Tiếng Anh</td><td>Nguyễn Thanh Nhã</td></tr>
+<tr><td>7</td><td>4</td><td>CLB Thể dục thể thao</td><td>Đỗ Tấn Khương</td></tr>
+</table>
+
+<!-- Ví dụ 1 CLB, bạn có thể copy cấu trúc này cho 6 CLB còn lại -->
+
+<section class="section" id="stem">
+<div class="club">
+<h2> 1 STEM</h2>
+<div class="info">
+<b>Tôn chỉ:</b><br>
+Khơi dậy đam mê khoa học và công nghệ.<br><br>
+<b>Tiêu chí:</b><br>
+Yêu thích sáng tạo, nghiên cứu và chế tạo.
+</div>
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/ZRsBBSSY/images-2.jpg" alt="images (2)" border="0"></a>
+
+
+
+</div>
+</section>
+<section class="section" id="vanhoa">
+<div class="club">
+<h2>2. CLB Văn hóa đọc</h2>
+
+<div class="info">
+<b>Tôn chỉ:</b><br>
+Xây dựng và lan tỏa văn hóa đọc trong học sinh.<br><br>
+
+<b>Tiêu chí:</b><br>
+Yêu thích đọc sách, tích cực chia sẻ và tham gia sinh hoạt đầy đủ.
+</div>
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/7J1WHdTn/images-1.jpg" alt="images (1)" border="0"></a>
+
+
+
+</div>
+</section>
+<section class="section" id="songxanh">
+<div class="club">
+<h2>3. CLB Sống xanh</h2>
+
+<div class="info">
+<b>Tôn chỉ:</b><br>
+Nâng cao ý thức bảo vệ môi trường trong học đường.<br><br>
+
+<b>Tiêu chí:</b><br>
+Có trách nhiệm với môi trường và tích cực tham gia hoạt động xanh.
+</div>
+
+<img src="https://i.ibb.co/NnnZ38tf/IMG-1771676369991-1771676386392.jpg">
+
+
+
+</div>
+</section>
+<section class="section" id="tienganh">
+<div class="club">
+<h2>4. CLB Tiếng Anh</h2>
+
+<div class="info">
+<b>Tôn chỉ:</b><br>
+Tạo môi trường giao tiếp tiếng Anh tự tin và năng động.<br><br>
+
+<b>Tiêu chí:</b><br>
+Chủ động luyện tập kỹ năng nghe – nói – đọc – viết.
+</div>
+
+<img src="https://i.ibb.co/5hd4ck01/doc2.jpg">
+
+
+
+</div>
+</section>
+<section class="section" id="thethao">
+<div class="club">
+<h2>5. CLB Thể thao</h2>
+
+<div class="info">
+<b>Tôn chỉ:</b><br>
+Rèn luyện thể chất và tinh thần đồng đội.<br><br>
+
+<b>Tiêu chí:</b><br>
+Có sức khỏe tốt, kỷ luật và tinh thần thi đấu tích cực.
+</div>
+
+<a href="https://ibb.co/kgxHWbBt"><img src="https://i.ibb.co/XZb2v0Lq/thethao2.jpg" alt="thethao2" border="0"></a>
+
+
+
+</div>
+</section>
+<section class="section" id="phapluat">
+<div class="club">
+<h2>6. CLB Pháp luật</h2>
+
+<div class="info">
+<b>Tôn chỉ:</b><br>
+Trang bị kiến thức pháp luật và ý thức công dân.<br><br>
+
+<b>Tiêu chí:</b><br>
+Quan tâm đến pháp luật và có tư duy phản biện.
+</div>
+
+<img src="https://i.ibb.co/h1wpbfCH/IMG-1771685159612-1771685209124.jpg">
+
+
+
+</div>
+</section>
+<section class="section" id="vannhe">
+<div class="club">
+<h2>7. CLB Văn nghệ</h2>
+
+<div class="info">
+<b>Tôn chỉ:</b><br>
+Phát triển năng khiếu nghệ thuật và sáng tạo học đường.<br><br>
+
+<b>Tiêu chí:</b><br>
+Có đam mê nghệ thuật và tự tin biểu diễn.
+</div>
+
+<a href="https://ibb.co/p6VBNrxP"><img src="https://i.ibb.co/xK9tw8Ds/Vannghe2.jpg" alt="Vannghe2" border="0"></a>
+
+
+
+</div>
+</section>
+</div>
+
+
+<footer>
+THPT Võ Nguyên Giáp
+</footer>
+
+</body>
+</html>
